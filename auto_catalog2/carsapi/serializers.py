@@ -1,10 +1,12 @@
 from rest_framework import serializers
-from .models import Car, avg_raitnig
+from .models import Car
+
 
 class CarListSerializer(serializers.ModelSerializer):
     class Meta:
         model = Car
         fields = ('id', 'make', 'model', 'rating')
+
 
 class CarPopularSerializer(serializers.ModelSerializer):
     class Meta:
@@ -12,16 +14,11 @@ class CarPopularSerializer(serializers.ModelSerializer):
         fields = ('id', 'rating')
 
 
-
 class CarSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Car
         fields = ('id', 'make', 'model', 'rating')
 
-class CarPopularSerializer(serializers.HyperlinkedModelSerializer):
-    class Meta:
-        model = Car
-        fields = ('id', 'make', 'model', 'rating')        
 
 class CarCreateSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
